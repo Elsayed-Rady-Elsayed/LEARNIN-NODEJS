@@ -34,10 +34,22 @@
 // server.listen(3001, () => {
 //   console.log("listheinig on port 3001");
 // });
-
+const fs = require("node:fs");
+const homePage = fs.readFileSync("./views/index.html", "utf-8");
+const style = fs.readFileSync("./views/style.css", "utf-8");
 const http = require("node:http");
 const server = http.createServer((req, res) => {
-  res.write("hello world");
+  if (req.url === "/") {
+    res.write(homePage);
+  } else if (req.url === "/style.css") {
+    res.write(style);
+  }
+  //   res.write(
+  //     JSON.stringify({
+  //       id: 1,
+  //       name: "sayed",
+  //     })
+  //   );
   res.end();
 });
 server.listen(3001, "localhost", () => {
