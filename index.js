@@ -19,18 +19,27 @@
 // pbkdf2("secret", "salt", 100000, 64, "sha512", () => {
 //   console.log("end of function", performance.now() - start);
 // });
+// const http = require("node:http");
+// const server = http.createServer((req, res) => {
+//   if (req.url == "/") {
+//     res.end("home page");
+//   } else if (req.url == "/about") {
+//     res.end("about page");
+//   } else {
+//     res.end("not found");
+//   }
+
+//   //   res.end("hello world");
+// });
+// server.listen(3001, () => {
+//   console.log("listheinig on port 3001");
+// });
+
 const http = require("node:http");
 const server = http.createServer((req, res) => {
-  if (req.url == "/") {
-    res.end("home page");
-  } else if (req.url == "/about") {
-    res.end("about page");
-  } else {
-    res.end("not found");
-  }
-
-  //   res.end("hello world");
+  res.write("hello world");
+  res.end();
 });
-server.listen(3001, () => {
-  console.log("listheinig on port 3001");
+server.listen(3001, "localhost", () => {
+  console.log("working on port:3001");
 });
