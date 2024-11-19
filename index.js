@@ -13,3 +13,8 @@ const file2 = fs.readFile("./test.txt", "utf-8", (err, data) => {
 console.log("====================================");
 console.log(Buffer.from("r").toJSON());
 console.log("====================================");
+//large data must be treated as stream
+const rs = fs.createReadStream("./test.txt", "utf8");
+rs.on("data", (chunk) => {
+  console.log(chunk);
+});
