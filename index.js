@@ -15,6 +15,8 @@ console.log(Buffer.from("r").toJSON());
 console.log("====================================");
 //large data must be treated as stream
 const rs = fs.createReadStream("./test.txt", "utf8");
+const ws = fs.createWriteStream("./stream.txt", "utf8");
 rs.on("data", (chunk) => {
   console.log(chunk);
+  ws.write(chunk);
 });
