@@ -1,8 +1,12 @@
 const fs = require("node:fs");
-const fc = fs.readFileSync("./test.text", "utf8");
-console.log(fc);
-console.log(__filename);
-console.log(__dirname);
-const s = require("./module");
-// delete require.cache["filename"];
-s.sum(1, 2);
+const fileText = fs.readFileSync("./test.txt", "utf-8");
+const file2 = fs.readFile("./test.txt", "utf-8", (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
+// console.log("====================================");
+// console.log(fileText);
+// console.log("====================================");
