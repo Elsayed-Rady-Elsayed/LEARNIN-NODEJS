@@ -10,3 +10,6 @@ const file2 = fs.readFile("./test.txt", "utf-8", (err, data) => {
 // console.log("====================================");
 // console.log(fileText);
 // console.log("====================================");
+console.log("====================================");
+console.log(Buffer.from("r").toJSON());
+console.log("====================================");
