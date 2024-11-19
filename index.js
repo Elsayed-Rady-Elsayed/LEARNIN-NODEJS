@@ -42,6 +42,7 @@ const server = http.createServer((req, res) => {
   if (req.url === "/") {
     res.write(homePage);
   } else if (req.url === "/style.css") {
+    // res.statusCode = 404;
     res.write(style);
   }
   //   res.write(
@@ -52,6 +53,6 @@ const server = http.createServer((req, res) => {
   //   );
   res.end();
 });
-server.listen(3001, "localhost", () => {
+server.listen(443, "localhost", () => {
   console.log("working on port:3001");
 });
